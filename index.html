@@ -8,7 +8,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#04090f;--bg2:#070e1a;--bg3:#0b1525;--card:#0d1a2e;
+  --bg:#04090f;--bg3:#0b1525;--card:#0d1a2e;
   --blue:#2196f3;--neon:#42a5f5;--neon-soft:rgba(33,150,243,0.12);
   --border:rgba(33,150,243,0.15);--text:#e3f2fd;--muted:#5c89b0;
   --font:'Inter',sans-serif;--font-head:'Syne',sans-serif;
@@ -26,15 +26,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2rem;background
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s}
 .nav-links a:hover{color:var(--neon)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.burger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:all 0.3s}
+.burger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px}
 
 /* HERO */
 .hero{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:7rem 2rem 4rem;text-align:center;flex-direction:column}
 .avatar-wrap{position:relative;width:130px;height:130px;margin:0 auto 2rem}
 .avatar-ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(var(--blue),var(--neon),#1e88e5,var(--blue));animation:spin 6s linear infinite}
 .avatar-ring-inner{position:absolute;inset:3px;border-radius:50%;background:var(--bg)}
-.avatar{position:absolute;inset:6px;border-radius:50%;background:var(--bg3);overflow:hidden;display:flex;align-items:center;justify-content:center}
-.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%}
+.avatar{position:absolute;inset:6px;border-radius:50%;background:var(--bg3);overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top}
 @keyframes spin{to{transform:rotate(360deg)}}
 .status-dot{position:absolute;bottom:6px;right:6px;width:14px;height:14px;background:#4caf50;border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 8px rgba(76,175,80,0.6);z-index:2}
 .hero-tag{display:inline-block;font-size:0.72rem;font-weight:500;color:var(--neon);border:1px solid rgba(33,150,243,0.35);padding:4px 14px;border-radius:20px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem}
@@ -44,15 +44,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2rem;background
 .hero-sub b{color:var(--text);font-weight:600}
 
 /* FACEIT */
-.faceit-badge{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 18px;margin-bottom:2.5rem;transition:border-color 0.2s}
-.faceit-badge:hover{border-color:rgba(33,150,243,0.4)}
+.faceit-badge{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 18px;margin-bottom:2.5rem}
 .faceit-lvl{width:36px;height:36px;border-radius:6px;background:linear-gradient(135deg,#ff6d00,#ff9100);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;box-shadow:0 0 12px rgba(255,109,0,0.4);flex-shrink:0}
 .faceit-info{text-align:left}
 .faceit-label{font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
 .faceit-val{font-size:0.9rem;font-weight:600;color:var(--text)}
 .faceit-elo{font-size:0.72rem;color:var(--muted);margin-top:1px}
 .elo-bar{width:120px;height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-top:6px;overflow:hidden}
-.elo-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#ff6d00,#ff9100);width:0%;box-shadow:0 0 6px rgba(255,109,0,0.5)}
+.elo-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#ff6d00,#ff9100);width:0%}
 .hero-btns{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:600;padding:0.7rem 1.6rem;border-radius:8px;text-decoration:none;cursor:pointer;transition:all 0.2s;border:none;letter-spacing:0.03em}
 .btn-blue{background:var(--blue);color:#fff;box-shadow:0 4px 20px rgba(33,150,243,0.3)}
@@ -64,8 +63,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2rem;background
 section{padding:5rem 2rem}
 .sec-inner{max-width:900px;margin:0 auto}
 .sec-label{font-size:0.68rem;font-weight:600;color:var(--neon);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.5rem}
-.sec-title{font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:0.5rem;line-height:1.1}
-.sec-desc{color:var(--muted);font-size:0.92rem;margin-bottom:2.5rem;max-width:500px}
+.sec-title{font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:1.5rem;line-height:1.1}
 .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(33,150,243,0.2),transparent)}
 
 /* ABOUT */
@@ -76,104 +74,149 @@ section{padding:5rem 2rem}
 .about-card-title{font-weight:700;font-size:0.95rem;color:#fff;margin-bottom:0.4rem}
 .about-card-text{font-size:0.83rem;color:var(--muted);line-height:1.6}
 
-/* ===== EDITS SECTION ===== */
-.edits-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
-.add-edit-btn{display:flex;align-items:center;gap:6px;background:rgba(33,150,243,0.1);border:1px solid rgba(33,150,243,0.3);color:var(--neon);font-size:0.8rem;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s}
-.add-edit-btn:hover{background:rgba(33,150,243,0.2);border-color:var(--neon)}
-
-/* FEATURED — 3 телефона */
+/* ===== EDITS — ТЕЛЕФОНЫ ===== */
+/* Первые 3 — featured */
 .edits-featured{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-bottom:1.5rem}
+
+/* Телефон-рамка */
 .phone-frame{
   position:relative;
-  background:#0a0a0f;
-  border:2px solid rgba(255,255,255,0.12);
+  background:#06080f;
+  border:2px solid rgba(255,255,255,0.1);
   border-radius:28px;
   aspect-ratio:9/16;
   overflow:hidden;
-  box-shadow:0 8px 40px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06);
+  box-shadow:0 8px 40px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.05);
   cursor:pointer;
   transition:transform 0.25s,box-shadow 0.25s;
 }
-.phone-frame:hover{transform:translateY(-4px);box-shadow:0 16px 50px rgba(33,150,243,0.2),0 0 0 1px rgba(33,150,243,0.3)}
-.phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:60px;height:6px;background:#000;border-radius:3px;z-index:10}
-.phone-video{width:100%;height:100%;object-fit:cover;display:block}
-.phone-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.8rem;color:var(--muted);background:linear-gradient(180deg,#0d1a2e,#050b14)}
-.phone-play{width:48px;height:48px;border-radius:50%;background:rgba(33,150,243,0.2);border:2px solid rgba(33,150,243,0.4);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all 0.2s}
-.phone-frame:hover .phone-play{background:rgba(33,150,243,0.35);border-color:var(--neon);transform:scale(1.1)}
-.phone-info{position:absolute;bottom:0;left:0;right:0;padding:1rem;background:linear-gradient(0deg,rgba(0,0,0,0.85) 0%,transparent 100%);z-index:5}
-.phone-title{font-size:0.78rem;font-weight:600;color:#fff;margin-bottom:2px}
-.phone-sub{font-size:0.65rem;color:rgba(255,255,255,0.5)}
-.phone-del{position:absolute;top:16px;right:12px;width:26px;height:26px;border-radius:50%;background:rgba(244,67,54,0.8);border:none;color:#fff;font-size:0.75rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:20;transition:all 0.2s}
-.phone-del:hover{background:#ef5350;transform:scale(1.1)}
-.edit-mode-on .phone-del{display:flex}
+.phone-frame:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(33,150,243,0.25),0 0 0 1px rgba(33,150,243,0.35)}
+.phone-notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:55px;height:5px;background:#000;border-radius:3px;z-index:10}
 
-/* ARCHIVE */
-.archive-toggle{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.4rem;cursor:pointer;transition:all 0.2s;user-select:none}
-.archive-toggle:hover{border-color:rgba(33,150,243,0.4);background:rgba(13,26,46,0.8)}
-.archive-toggle-left{display:flex;align-items:center;gap:10px}
-.archive-toggle-icon{font-size:1.2rem}
-.archive-toggle-text{font-weight:600;font-size:0.9rem;color:#fff}
-.archive-toggle-count{font-size:0.72rem;color:var(--neon);background:rgba(33,150,243,0.1);border:1px solid rgba(33,150,243,0.2);padding:2px 8px;border-radius:10px}
-.archive-chevron{color:var(--muted);font-size:0.85rem;transition:transform 0.3s}
-.archive-open .archive-chevron{transform:rotate(180deg)}
-
-.archive-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
-  overflow:hidden;max-height:0;transition:max-height 0.5s ease,padding 0.3s;
-  padding:0 0;
+/* Видео внутри телефона */
+.phone-frame video{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:26px;
 }
-.archive-open .archive-grid{max-height:2000px;padding:1rem 0 0}
 
-.archive-card{
-  background:var(--card);border:1px solid var(--border);border-radius:12px;
-  aspect-ratio:9/16;position:relative;overflow:hidden;cursor:pointer;
+/* Оверлей при hover */
+.phone-overlay{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0);
+  transition:background 0.25s;
+  z-index:5;border-radius:26px;
+}
+.phone-frame:hover .phone-overlay{background:rgba(0,0,0,0.25)}
+.phone-play-icon{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(33,150,243,0.25);
+  border:2px solid rgba(33,150,243,0.6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+  opacity:0;transform:scale(0.8);
+  transition:opacity 0.25s,transform 0.25s;
+  backdrop-filter:blur(4px);
+}
+.phone-frame:hover .phone-play-icon{opacity:1;transform:scale(1)}
+
+/* Подпись снизу */
+.phone-info{position:absolute;bottom:0;left:0;right:0;padding:1.2rem 1rem 1rem;background:linear-gradient(0deg,rgba(0,0,0,0.9) 0%,transparent 100%);z-index:6;border-radius:0 0 26px 26px}
+.phone-title{font-size:0.78rem;font-weight:600;color:#fff;margin-bottom:2px}
+.phone-sub{font-size:0.63rem;color:rgba(255,255,255,0.45)}
+
+/* АРХИВ */
+.archive-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:1rem 1.4rem;
+  cursor:pointer;transition:all 0.2s;user-select:none;margin-bottom:0;
+}
+.archive-bar:hover{border-color:rgba(33,150,243,0.4)}
+.archive-bar-left{display:flex;align-items:center;gap:10px}
+.archive-count{font-size:0.72rem;color:var(--neon);background:rgba(33,150,243,0.1);border:1px solid rgba(33,150,243,0.2);padding:2px 8px;border-radius:10px}
+.archive-title{font-weight:600;font-size:0.9rem;color:#fff}
+.arc-arrow{color:var(--muted);transition:transform 0.3s}
+.archive-bar.open .arc-arrow{transform:rotate(180deg)}
+
+.archive-body{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  max-height:0;overflow:hidden;
+  transition:max-height 0.5s ease,margin 0.3s;
+  margin-top:0;
+}
+.archive-body.open{max-height:3000px;margin-top:1rem}
+
+/* Архивная карточка — тоже телефон */
+.arc-card{
+  position:relative;
+  background:#06080f;
+  border:1.5px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  aspect-ratio:9/16;
+  overflow:hidden;
+  cursor:pointer;
   transition:all 0.25s;
 }
-.archive-card:hover{border-color:rgba(33,150,243,0.4);transform:scale(1.02)}
-.archive-card video{width:100%;height:100%;object-fit:cover}
-.archive-card-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;color:var(--muted);background:linear-gradient(180deg,#0d1a2e,#050b14);font-size:0.7rem}
-.archive-card-play{font-size:1.4rem}
-.archive-card-info{position:absolute;bottom:0;left:0;right:0;padding:0.8rem;background:linear-gradient(0deg,rgba(0,0,0,0.85),transparent);z-index:5}
-.archive-card-title{font-size:0.72rem;font-weight:600;color:#fff}
-.archive-del{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:rgba(244,67,54,0.8);border:none;color:#fff;font-size:0.65rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:20}
-.archive-del:hover{background:#ef5350}
-.edit-mode-on .archive-del{display:flex}
+.arc-card:hover{transform:scale(1.03);border-color:rgba(33,150,243,0.4);box-shadow:0 10px 30px rgba(33,150,243,0.15)}
+.arc-card video{width:100%;height:100%;object-fit:cover;display:block;border-radius:18px}
+.arc-card-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0);transition:background 0.25s;border-radius:18px;z-index:5}
+.arc-card:hover .arc-card-overlay{background:rgba(0,0,0,0.3)}
+.arc-play{width:40px;height:40px;border-radius:50%;background:rgba(33,150,243,0.25);border:2px solid rgba(33,150,243,0.6);display:flex;align-items:center;justify-content:center;font-size:1rem;opacity:0;transform:scale(0.8);transition:opacity 0.25s,transform 0.25s}
+.arc-card:hover .arc-play{opacity:1;transform:scale(1)}
+.arc-info{position:absolute;bottom:0;left:0;right:0;padding:0.8rem;background:linear-gradient(0deg,rgba(0,0,0,0.9),transparent);z-index:6;border-radius:0 0 18px 18px}
+.arc-title{font-size:0.7rem;font-weight:600;color:#fff}
 
-/* ADD PANEL */
-.add-panel{background:var(--bg3);border:1px dashed rgba(33,150,243,0.3);border-radius:12px;padding:1.5rem;margin-top:1rem;display:none;flex-direction:column;gap:0.8rem}
-.add-panel.open{display:flex}
-.add-panel-title{font-size:0.88rem;font-weight:700;color:#fff}
-.add-input{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:0.85rem;font-family:var(--font);outline:none;transition:border-color 0.2s;width:100%}
-.add-input:focus{border-color:rgba(33,150,243,0.5)}
-.add-input::placeholder{color:var(--muted)}
-.add-type-row{display:flex;gap:0.6rem}
-.type-opt{flex:1;padding:8px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:0.78rem;font-weight:500;cursor:pointer;text-align:center;transition:all 0.2s}
-.type-opt:hover,.type-opt.sel{background:rgba(33,150,243,0.15);border-color:var(--neon);color:var(--neon)}
-.add-row2{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem}
-.add-submit{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s}
-.add-submit:hover{background:#1e88e5}
-.edit-hint{font-size:0.72rem;color:rgba(33,150,243,0.6);text-align:center;margin-top:0.3rem}
-
-/* VIDEO MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:1000;display:none;align-items:center;justify-content:center;padding:1rem}
+/* ===== ВИДЕО МОДАЛ — как телефон ===== */
+.modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.94);
+  z-index:1000;
+  display:none;align-items:center;justify-content:center;
+  padding:1rem;
+  cursor:pointer;
+}
 .modal-overlay.open{display:flex}
 .modal-phone{
   position:relative;
-  width:min(340px,80vw);
-  max-height:90svh;
+  width:min(320px,85vw);
   background:#000;
-  border-radius:32px;
+  border-radius:36px;
   overflow:hidden;
-  border:2px solid rgba(255,255,255,0.15);
-  box-shadow:0 0 60px rgba(33,150,243,0.3);
+  border:2px solid rgba(255,255,255,0.12);
+  box-shadow:0 0 80px rgba(33,150,243,0.35),0 0 0 1px rgba(33,150,243,0.2);
+  cursor:default;
+  max-height:92svh;
+  display:flex;flex-direction:column;
 }
-.modal-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:70px;height:7px;background:#111;border-radius:4px;z-index:10}
-.modal-video{width:100%;display:block;max-height:90svh;object-fit:contain;background:#000}
-.modal-close{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:20;transition:all 0.2s}
+.modal-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:65px;height:6px;background:#111;border-radius:3px;z-index:10}
+.modal-video{
+  width:100%;
+  aspect-ratio:9/16;
+  object-fit:contain;
+  background:#000;
+  display:block;
+  border-radius:34px;
+}
+.modal-close{
+  position:absolute;top:14px;right:14px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,0.7);border:1px solid rgba(255,255,255,0.2);
+  color:#fff;font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;z-index:20;
+  transition:all 0.2s;
+}
 .modal-close:hover{background:rgba(244,67,54,0.8)}
-.modal-title{position:absolute;bottom:0;left:0;right:0;padding:1.2rem;background:linear-gradient(0deg,rgba(0,0,0,0.9),transparent);z-index:10;font-size:0.85rem;font-weight:600;color:#fff}
-.modal-overlay{cursor:pointer}
-.modal-phone{cursor:default}
+.modal-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.2rem;
+  background:linear-gradient(0deg,rgba(0,0,0,0.9),transparent);
+  z-index:10;border-radius:0 0 34px 34px;
+}
+.modal-title-text{font-size:0.9rem;font-weight:600;color:#fff}
+.modal-sub-text{font-size:0.72rem;color:rgba(255,255,255,0.5);margin-top:2px}
 
 /* CONTACTS — иконки */
 .contacts-section{padding:4rem 2rem}
@@ -189,7 +232,7 @@ section{padding:5rem 2rem}
   font-size:1.8rem;
   border:1px solid var(--border);
   transition:all 0.25s;
-  position:relative;overflow:hidden;
+position:relative;overflow:hidden;
 }
 .contact-icon-circle img.ci-custom-img{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%;z-index:2;
@@ -197,7 +240,6 @@ section{padding:5rem 2rem}
 .contact-icon-circle::before{content:'';position:absolute;inset:0;border-radius:50%;background:currentColor;opacity:0;transition:opacity 0.2s}
 .contact-icon-btn:hover .contact-icon-circle{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,0.4)}
 .contact-icon-label{font-size:0.68rem;color:var(--muted);font-weight:500;letter-spacing:0.05em}
-
 /* Кнопка загрузки фото на иконку */
 .ci-upload-btn{
   position:absolute;top:-4px;right:-4px;
@@ -225,7 +267,8 @@ section{padding:5rem 2rem}
   padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s;
   margin-bottom:1.5rem;
 }
-.icon-edit-mode-toggle:hover{background:rgba(33,150,243,0.2)}
+.ci-btn:hover .ci-circle{transform:translateY(-4px)}
+.ci-label{font-size:0.65rem;color:var(--muted);font-weight:500}
 
 .ci-tg .contact-icon-circle{background:rgba(40,167,234,0.12);border-color:rgba(40,167,234,0.3)}
 .ci-tg:hover .contact-icon-circle{background:rgba(40,167,234,0.25);border-color:#28a7ea;box-shadow:0 8px 24px rgba(40,167,234,0.3)!important}
@@ -246,15 +289,11 @@ section{padding:5rem 2rem}
 .ci-kp .contact-icon-circle{background:rgba(230,0,0,0.1);border-color:rgba(230,0,0,0.25)}
 .ci-kp:hover .contact-icon-circle{background:rgba(230,0,0,0.2);border-color:#e60000;box-shadow:0 8px 24px rgba(230,0,0,0.3)!important}
 
-/* FOOTER */
 footer{padding:2rem;text-align:center;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted)}
 footer span{color:var(--neon)}
-
-/* REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.on{opacity:1;transform:none}
 
-/* MOBILE */
 @media(max-width:640px){
   nav{padding:0.9rem 1.2rem}
   .nav-links{display:none;position:fixed;inset:0;top:60px;background:rgba(4,9,15,0.97);backdrop-filter:blur(16px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;z-index:199}
@@ -262,16 +301,12 @@ footer span{color:var(--neon)}
   .nav-links a{font-size:1.1rem}
   .burger{display:flex}
   .hero{padding:6rem 1.5rem 3rem}
-  .edits-featured{grid-template-columns:repeat(3,1fr);gap:0.6rem}
-  .archive-grid{grid-template-columns:repeat(2,1fr)}
   .about-grid{grid-template-columns:1fr}
+  .edits-featured{gap:0.6rem}
+  .archive-body{grid-template-columns:repeat(2,1fr)}
   section,.contacts-section{padding:3.5rem 1.2rem}
-  .contact-icon-circle{width:65px;height:65px;font-size:1.5rem}
-  .contacts-icons{gap:0.8rem;display:grid;grid-template-columns:repeat(2,1fr);justify-items:center}
-  .add-row2{grid-template-columns:1fr}
-}
-@media(max-width:380px){
-  .edits-featured{grid-template-columns:repeat(3,1fr);gap:0.4rem}
+  .ci-circle{width:58px;height:58px;font-size:1.5rem}
+  .contacts-icons{gap:0.8rem}
 }
 </style>
 </head>
@@ -281,7 +316,7 @@ footer span{color:var(--neon)}
 
 <nav>
   <div class="nav-logo">DDa<span>RiK</span></div>
-  <div class="burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <div class="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   <div class="nav-links" id="navLinks">
     <a href="#about" onclick="closeMenu()">О себе</a>
     <a href="#edits" onclick="closeMenu()">Эдиты</a>
@@ -300,13 +335,13 @@ footer span{color:var(--neon)}
   <div class="hero-tag">✦ Личная страница</div>
   <h1>DDa<span>RiK</span></h1>
   <p class="hero-sub">Делаю эдиты в <b>After Effects</b>. Играю в CS2 и Valorant.</p>
-  <div class="faceit-badge" id="faceit-badge">
+  <div class="faceit-badge">
     <div class="faceit-lvl" id="faceit-lvl">...</div>
     <div class="faceit-info">
       <div class="faceit-label">Faceit Level · CS2</div>
       <div class="faceit-val">DDaRiK</div>
       <div class="faceit-elo" id="faceit-elo">Загрузка...</div>
-      <div class="elo-bar"><div class="elo-fill" id="elo-fill" style="width:0%"></div></div>
+      <div class="elo-bar"><div class="elo-fill" id="elo-fill"></div></div>
     </div>
   </div>
   <div class="hero-btns">
@@ -324,58 +359,110 @@ footer span{color:var(--neon)}
     <div class="sec-title reveal">Кто я такой</div>
     <div class="about-grid reveal">
       <div class="about-card"><div class="about-card-icon">🎬</div><div class="about-card-title">Видео эдиты</div><div class="about-card-text">Монтирую эдиты на кино и сериалы — нарезаю сцены, добавляю музыку и эффекты.</div></div>
-      <div class="about-card"><div class="about-card-icon">🎮</div><div class="about-card-title">Геймер</div><div class="about-card-text">CS2, Valorant. Faceit Level 7+. Играю для удовольствия.</div></div>
-      <div class="about-card"><div class="about-card-icon">🎵</div><div class="about-card-title">Музыка</div><div class="about-card-text">Подбираю треки под настроение каждой сцены — это половина успеха.</div></div>
-      <div class="about-card"><div class="about-card-icon">📱</div><div class="about-card-title">Контент</div><div class="about-card-text">Выкладываю эдиты в TikTok. Хочу развиваться и радовать людей.</div></div>
+      <div class="about-card"><div class="about-card-icon">🎮</div><div class="about-card-title">Геймер</div><div class="about-card-text">CS2, Valorant. Играю для удовольствия.</div></div>
+      <div class="about-card"><div class="about-card-icon">🎵</div><div class="about-card-title">Музыка</div><div class="about-card-text">Подбираю треки под настроение каждой сцены.</div></div>
+      <div class="about-card"><div class="about-card-icon">📱</div><div class="about-card-title">Контент</div><div class="about-card-text">Выкладываю эдиты в TikTok.</div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- EDITS -->
+<!-- =====================================================
+     ЭДИТЫ — КАК ДОБАВИТЬ СВОЁ ВИДЕО:
+     1. Положи видео-файл (.mp4) в ту же папку что и этот HTML
+     2. В теге <video> замени "edit1.mp4" на имя твоего файла
+     3. Первые 3 — показываются сразу, остальные — в архиве
+     ===================================================== -->
 <section id="edits">
-  <div class="sec-inner" id="editsRoot">
-    <div class="edits-header reveal">
-      <div>
-        <div class="sec-label">// Эдиты</div>
-        <div class="sec-title" style="margin-bottom:0">Мои работы</div>
-      </div>
-      <button class="add-edit-btn" id="addEditBtn" onclick="toggleEditMode()">✏️ Управлять</button>
-    </div>
+  <div class="sec-inner">
+    <div class="sec-label reveal">// Эдиты</div>
+    <div class="sec-title reveal">Мои работы</div>
 
-    <!-- 3 телефона (featured) -->
-    <div class="edits-featured reveal" id="featuredGrid"></div>
+    <!-- ▼▼▼ FEATURED — 3 ЭДИТА СРАЗУ ▼▼▼ -->
+    <div class="edits-featured reveal">
 
-    <!-- Архив -->
-    <div class="archive-wrapper reveal" id="archiveWrapper" style="display:none">
-      <div class="archive-toggle" onclick="toggleArchive()" id="archiveToggle">
-        <div class="archive-toggle-left">
-          <span class="archive-toggle-icon">📁</span>
-          <span class="archive-toggle-text">Архив эдитов</span>
-          <span class="archive-toggle-count" id="archiveCount">0</span>
+      <!-- ЭДИТ 1 — замени edit1.mp4 на имя своего файла -->
+      <div class="phone-frame" onclick="openModal('edit1.mp4','Эдит #1','After Effects')">
+        <div class="phone-notch"></div>
+        <video src="edit1.mp4" muted loop playsinline preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="phone-overlay"><div class="phone-play-icon">▶</div></div>
+        <div class="phone-info">
+          <div class="phone-title">Эдит #1</div>
+          <div class="phone-sub">After Effects</div>
         </div>
-        <span class="archive-chevron">▼</span>
       </div>
-      <div class="archive-grid" id="archiveGrid"></div>
+
+      <!-- ЭДИТ 2 — замени edit2.mp4 -->
+      <div class="phone-frame" onclick="openModal('edit2.mp4','Эдит #2','After Effects')">
+        <div class="phone-notch"></div>
+        <video src="edit2.mp4" muted loop playsinline preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="phone-overlay"><div class="phone-play-icon">▶</div></div>
+        <div class="phone-info">
+          <div class="phone-title">Эдит #2</div>
+          <div class="phone-sub">After Effects</div>
+        </div>
+      </div>
+
+      <!-- ЭДИТ 3 — замени edit3.mp4 -->
+      <div class="phone-frame" onclick="openModal('edit3.mp4','Эдит #3','After Effects')">
+        <div class="phone-notch"></div>
+        <video src="edit3.mp4" muted loop playsinline preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="phone-overlay"><div class="phone-play-icon">▶</div></div>
+        <div class="phone-info">
+          <div class="phone-title">Эдит #3</div>
+          <div class="phone-sub">After Effects</div>
+        </div>
+      </div>
+
+    </div>
+    <!-- ▲▲▲ КОНЕЦ FEATURED ▲▲▲ -->
+
+
+    <!-- ▼▼▼ АРХИВ — остальные эдиты ▼▼▼ -->
+    <div class="archive-bar reveal" onclick="toggleArchive(this)">
+      <div class="archive-bar-left">
+        <span style="font-size:1.1rem">📁</span>
+        <span class="archive-title">Архив эдитов</span>
+        <span class="archive-count">3</span>
+      </div>
+      <span class="arc-arrow">▼</span>
     </div>
 
-    <!-- Add Panel -->
-    <div class="add-panel" id="addPanel">
-      <div class="add-panel-title">➕ Добавить эдит</div>
-      <div class="add-type-row">
-        <div class="type-opt sel" id="typeUrl" onclick="setType('url')">🔗 Ссылка на видео</div>
-        <div class="type-opt" id="typeFile" onclick="setType('file')">📁 Файл с устройства</div>
+    <div class="archive-body" id="archiveBody">
+
+      <!-- АРХИВ 1 — замени archive1.mp4 -->
+      <div class="arc-card" onclick="openModal('archive1.mp4','Архив #1','After Effects')">
+        <video src="archive1.mp4" muted preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="arc-card-overlay"><div class="arc-play">▶</div></div>
+        <div class="arc-info"><div class="arc-title">Архив #1</div></div>
       </div>
-      <input class="add-input" id="newVideoUrl" placeholder="Вставь ссылку на видео (MP4, YouTube короткая...)" style="display:block">
-      <input type="file" class="add-input" id="newVideoFile" accept="video/*" style="display:none;padding:8px">
-      <div class="add-row2">
-        <input class="add-input" id="newTitle" placeholder="Название эдита">
-        <input class="add-input" id="newSub" placeholder="Подзаголовок (необязательно)">
+
+      <!-- АРХИВ 2 — замени archive2.mp4 -->
+      <div class="arc-card" onclick="openModal('archive2.mp4','Архив #2','After Effects')">
+        <video src="archive2.mp4" muted preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="arc-card-overlay"><div class="arc-play">▶</div></div>
+        <div class="arc-info"><div class="arc-title">Архив #2</div></div>
       </div>
-      <button class="add-submit" id="addSubmitBtn" onclick="addEdit()">Добавить</button>
-      <div class="edit-hint">Первые 3 — показываются сразу, остальные — в архиве</div>
+
+      <!-- АРХИВ 3 — замени archive3.mp4 -->
+      <div class="arc-card" onclick="openModal('archive3.mp4','Архив #3','After Effects')">
+        <video src="archive3.mp4" muted preload="metadata"
+               onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>
+        <div class="arc-card-overlay"><div class="arc-play">▶</div></div>
+        <div class="arc-info"><div class="arc-title">Архив #3</div></div>
+      </div>
+
+      <!-- ДОБАВИТЬ ЕЩЁ: скопируй блок arc-card выше и вставь сюда -->
+
     </div>
+    <!-- ▲▲▲ КОНЕЦ АРХИВА ▲▲▲ -->
+
   </div>
 </section>
 
@@ -433,58 +520,58 @@ footer span{color:var(--neon)}
   </div>
 </section>
 
+
 <footer><span>DDaRiK</span> · Сделано с синим 💙 · 2026</footer>
 
-<!-- VIDEO MODAL -->
+<!-- МОДАЛ — телефон с видео -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
   <div class="modal-phone" onclick="event.stopPropagation()">
     <div class="modal-notch"></div>
     <button class="modal-close" onclick="closeModal()">✕</button>
     <video class="modal-video" id="modalVideo" controls playsinline></video>
-    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-info">
+      <div class="modal-title-text" id="modalTitleText"></div>
+      <div class="modal-sub-text" id="modalSubText"></div>
+    </div>
   </div>
 </div>
 
 </div>
-
 <script>
-// ── BG ──
+/* BG */
 const cv=document.getElementById('bg'),cx=cv.getContext('2d');
 let W,H,ps=[];
-function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
-function init(){ps=[];const n=Math.floor(W*H/15000);for(let i=0;i<n;i++)ps.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.2+.3,a:Math.random()*.5+.1})}
+function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight}
+function init(){ps=[];const n=Math.floor(W*H/15000);for(let i=0;i<n;i++)ps.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.2+.3,a:Math.random()*.4+.1})}
 function draw(){cx.clearRect(0,0,W,H);for(const p of ps){cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);cx.fillStyle=`rgba(33,150,243,${p.a})`;cx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0}for(let i=0;i<ps.length;i++)for(let j=i+1;j<ps.length;j++){const dx=ps[i].x-ps[j].x,dy=ps[i].y-ps[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){cx.beginPath();cx.moveTo(ps[i].x,ps[i].y);cx.lineTo(ps[j].x,ps[j].y);cx.strokeStyle=`rgba(33,100,243,${(1-d/100)*.12})`;cx.lineWidth=.5;cx.stroke()}}requestAnimationFrame(draw)}
 resize();init();draw();
-window.addEventListener('resize',()=>{resize();init()});
+addEventListener('resize',()=>{resize();init()});
 
-// ── REVEAL ──
-const rEls=document.querySelectorAll('.reveal');
-const rOb=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');rOb.unobserve(el.target)}}),{threshold:.1});
-rEls.forEach(e=>rOb.observe(e));
+/* REVEAL */
+document.querySelectorAll('.reveal').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){el.classList.add('on')}},{threshold:.1}).observe(el);
+});
 
-// ── MOBILE MENU ──
+/* MENU */
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.body.style.overflow=document.getElementById('navLinks').classList.contains('open')?'hidden':'';}
 function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.body.style.overflow='';}
 
-// ── FACEIT API ──
-(async function loadFaceit(){
-  const KEY='4614699e-91f2-4ecb-b913-87a4b32d1df9',NICK='DDaRiK';
-  const ELO_R=[{l:1,mn:1,mx:500},{l:2,mn:501,mx:750},{l:3,mn:751,mx:900},{l:4,mn:901,mx:1050},{l:5,mn:1051,mx:1200},{l:6,mn:1201,mx:1350},{l:7,mn:1351,mx:1530},{l:8,mn:1531,mx:1750},{l:9,mn:1751,mx:2000},{l:10,mn:2001,mx:9999}];
-  const COLS={1:'#808080',2:'#808080',3:'#808080',4:'#f0a84b',5:'#f0a84b',6:'#f0a84b',7:'#f0a84b',8:'#f0321e',9:'#f0321e',10:'#f0321e'};
+/* FACEIT */
+(async()=>{
+  const R=[{l:1,n:1,x:500},{l:2,n:501,x:750},{l:3,n:751,x:900},{l:4,n:901,x:1050},{l:5,n:1051,x:1200},{l:6,n:1201,x:1350},{l:7,n:1351,x:1530},{l:8,n:1531,x:1750},{l:9,n:1751,x:2000},{l:10,n:2001,x:9999}];
+  const C={1:'#808080',2:'#808080',3:'#808080',4:'#f0a84b',5:'#f0a84b',6:'#f0a84b',7:'#f0a84b',8:'#f0321e',9:'#f0321e',10:'#f0321e'};
   try{
-    const res=await fetch(`https://open.faceit.com/data/v4/players?nickname=${NICK}`,{headers:{'Authorization':`Bearer ${KEY}`}});
-    if(!res.ok)throw 0;
+    const res=await fetch('https://open.faceit.com/data/v4/players?nickname=DDaRiK',{headers:{Authorization:'Bearer 4614699e-91f2-4ecb-b913-87a4b32d1df9'}});
     const d=await res.json();
-    const cs2=d.games&&(d.games.cs2||d.games.csgo);
-    if(cs2){
-      const l=cs2.skill_level||1,e=cs2.faceit_elo||0;
-      const r=ELO_R[Math.min(l-1,9)];
-      const pct=Math.min(100,Math.round((e-r.mn)/(r.mx-r.mn)*100));
-      const c=COLS[l]||'#ff6d00';
-      const lv=document.getElementById('faceit-lvl'),ev=document.getElementById('faceit-elo'),fv=document.getElementById('elo-fill');
-      if(lv){lv.textContent=l;lv.style.background=`linear-gradient(135deg,${c},${c}cc)`;lv.style.boxShadow=`0 0 12px ${c}66`;}
-      if(ev)ev.textContent=`${e} ELO`;
-      if(fv){fv.style.width=pct+'%';fv.style.background=`linear-gradient(90deg,${c},${c}cc)`;fv.style.boxShadow=`0 0 6px ${c}88`;}
+    const g=d.games&&(d.games.cs2||d.games.csgo);
+    if(g){
+      const l=g.skill_level||1,e=g.faceit_elo||0,r=R[Math.min(l-1,9)];
+      const pct=Math.min(100,Math.round((e-r.n)/(r.x-r.n)*100));
+      const c=C[l]||'#ff6d00';
+      const lv=document.getElementById('faceit-lvl');
+      if(lv){lv.textContent=l;lv.style.background=`linear-gradient(135deg,${c},${c}bb)`;lv.style.boxShadow=`0 0 12px ${c}55`;}
+      const ev=document.getElementById('faceit-elo');if(ev)ev.textContent=e+' ELO';
+      const fv=document.getElementById('elo-fill');if(fv){fv.style.width=pct+'%';fv.style.background=`linear-gradient(90deg,${c},${c}bb)`;}
     }
   }catch(e){
     const lv=document.getElementById('faceit-lvl'),ev=document.getElementById('faceit-elo');
@@ -492,272 +579,29 @@ function closeMenu(){document.getElementById('navLinks').classList.remove('open'
   }
 })();
 
-// ── EDITS MANAGER ──
-let editMode = false;
-let addType = 'url';
-let archiveOpen = false;
-let _edits = [];
-
-// ── IndexedDB ──
-const DB_NAME = 'ddrik_db', DB_VER = 1, STORE = 'edits';
-let db = null;
-
-function openDB(){
-  return new Promise((res,rej)=>{
-    const req = indexedDB.open(DB_NAME, DB_VER);
-    req.onupgradeneeded = e => e.target.result.createObjectStore(STORE, {keyPath:'id'});
-    req.onsuccess = e => { db = e.target.result; res(db); };
-    req.onerror = () => rej();
-  });
+/* ARCHIVE */
+function toggleArchive(bar){
+  bar.classList.toggle('open');
+  document.getElementById('archiveBody').classList.toggle('open');
 }
 
-function dbGetAll(){
-  return new Promise((res)=>{
-    const tx = db.transaction(STORE,'readonly');
-    const req = tx.objectStore(STORE).getAll();
-    req.onsuccess = () => res(req.result||[]);
-    req.onerror = () => res([]);
-  });
-}
-
-function dbPut(item){
-  return new Promise((res,rej)=>{
-    const tx = db.transaction(STORE,'readwrite');
-    tx.objectStore(STORE).put(item);
-    tx.oncomplete = res;
-    tx.onerror = rej;
-  });
-}
-
-function dbDelete(id){
-  return new Promise((res,rej)=>{
-    const tx = db.transaction(STORE,'readwrite');
-    tx.objectStore(STORE).delete(id);
-    tx.oncomplete = res;
-    tx.onerror = rej;
-  });
-}
-
-function loadEdits(){ return _edits; }
-function saveEdits(arr){ _edits = arr; }
-
-// Определяем тип ссылки и возвращаем embed URL
-function getEmbedInfo(src){
-  if(!src) return {type:'video', src};
-  // Streamable
-  const sm = src.match(/streamable\.com\/([a-zA-Z0-9]+)/);
-  if(sm) return {type:'iframe', src:`https://streamable.com/e/${sm[1]}?autoplay=1&muted=1`};
-  // YouTube
-  const yt = src.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/))([a-zA-Z0-9_-]+)/);
-  if(yt) return {type:'iframe', src:`https://www.youtube.com/embed/${yt[1]}?autoplay=1&muted=1`};
-  // обычное видео
-  return {type:'video', src};
-}
-
-function renderEdits(){
-  const edits = loadEdits();
-  const feat = edits.slice(0,3);
-  const arch = edits.slice(3);
-  const fg = document.getElementById('featuredGrid');
-  const ag = document.getElementById('archiveGrid');
-  const aw = document.getElementById('archiveWrapper');
-  const ac = document.getElementById('archiveCount');
-
-  // Featured
-  fg.innerHTML='';
-  if(feat.length===0){
-    fg.innerHTML=`<div style="grid-column:span 3;text-align:center;padding:3rem;color:var(--muted);font-size:0.85rem">Нажми "✏️ Управлять" и добавь первый эдит!</div>`;
-  } else {
-    feat.forEach((ed,i)=>{
-      const embed=getEmbedInfo(ed.src);
-      const div=document.createElement('div');
-      div.className='phone-frame';
-      div.innerHTML=`
-        <div class="phone-notch"></div>
-        ${ed.src
-          ? embed.type==='iframe'
-            ? `<iframe ... src="${embed.src}"></iframe>`
-            : `<iframe src="https://streamable.com/e/4r2dgm" class="phone-video"></iframe>`
-            ? `<iframe class="phone-video" src="${embed.src}" frameborder="0" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none"></iframe>`
-              `<iframe src="https://streamable.com/e/4r2dgm" class="phone-video"></iframe>`
-            : `<video class="phone-video" src="${embed.src}" muted loop playsinline preload="metadata"></video>`
-          : `<div class="phone-placeholder"><div class="phone-play">▶</div><span style="font-size:0.7rem">${ed.title||'Эдит'}</span></div>`
-        }
-        <div class="phone-info">
-          <div class="phone-title">${ed.title||'Эдит #'+(i+1)}</div>
-          <div class="phone-sub">${ed.sub||'After Effects'}</div>
-        </div>
-        <button class="phone-del" onclick="deleteEdit(event,${ed.id})">✕</button>
-      `;
-      if(embed.type!=='iframe'){
-        div.addEventListener('click', ()=>{ if(!editMode) openModal(ed); });
-        const vid = div.querySelector('video');
-        if(vid){
-          div.addEventListener('mouseenter',()=>vid.play().catch(()=>{}));
-          div.addEventListener('mouseleave',()=>{vid.pause();vid.currentTime=0;});
-        }
-      }
-      fg.appendChild(div);
-    });
-  }
-
-  // Archive
-  if(arch.length>0){
-    aw.style.display='block';
-    ac.textContent=arch.length;
-    ag.innerHTML='';
-    arch.forEach((ed,i)=>{
-      const embed=getEmbedInfo(ed.src);
-      const div=document.createElement('div');
-      div.className='archive-card';
-      div.innerHTML=`
-        ${ed.src
-          ? embed.type==='iframe'
-            ? `<iframe src="${embed.src}" frameborder="0" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none"></iframe>`
-            : `<video src="${embed.src}" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`
-          : `<div class="archive-card-placeholder"><div class="archive-card-play">🎬</div><span>${ed.title||'Эдит'}</span></div>`
-        }
-        <div class="archive-card-info"><div class="archive-card-title">${ed.title||'Эдит #'+(i+4)}</div></div>
-        <button class="archive-del" onclick="deleteEdit(event,${ed.id})">✕</button>
-      `;
-      if(embed.type!=='iframe'){
-        div.addEventListener('click',()=>{ if(!editMode) openModal(ed); });
-      }
-      ag.appendChild(div);
-    });
-  } else {
-    aw.style.display='none';
-  }
-
-  // Edit mode UI
-  const root = document.getElementById('editsRoot');
-  if(editMode) root.classList.add('edit-mode-on');
-  else root.classList.remove('edit-mode-on');
-}
-
-function setType(t){
-  addType=t;
-  document.getElementById('typeUrl').classList.toggle('sel',t==='url');
-  document.getElementById('typeFile').classList.toggle('sel',t==='file');
-  document.getElementById('newVideoUrl').style.display=t==='url'?'block':'none';
-  document.getElementById('newVideoFile').style.display=t==='file'?'block':'none';
-}
-
-function toggleEditMode(){
-  editMode=!editMode;
-  const btn=document.getElementById('addEditBtn');
-  const panel=document.getElementById('addPanel');
-  if(editMode){btn.textContent='✅ Готово';btn.style.background='rgba(76,175,80,0.15)';btn.style.borderColor='rgba(76,175,80,0.4)';btn.style.color='#81c784';panel.classList.add('open');}
-  else{btn.textContent='✏️ Управлять';btn.style.background='';btn.style.borderColor='';btn.style.color='';panel.classList.remove('open');}
-  renderEdits();
-}
-
-function addEdit(){
-  const title=document.getElementById('newTitle').value.trim()||'Эдит';
-  const sub=document.getElementById('newSub').value.trim()||'After Effects';
-  const urlVal=document.getElementById('newVideoUrl').value.trim();
-  const fileInput=document.getElementById('newVideoFile');
-  const btn=document.getElementById('addSubmitBtn');
-  const id=Date.now();
-
-  if(addType==='file' && fileInput.files.length>0){
-    const file=fileInput.files[0];
-    btn.textContent='⏳ Сохранение...';
-    btn.disabled=true;
-    const reader=new FileReader();
-    reader.onload=async function(e){
-      const item={id,title,sub,src:e.target.result,srcType:'file'};
-      await dbPut(item);
-      _edits = await dbGetAll();
-      _edits.sort((a,b)=>a.id-b.id);
-      renderEdits();
-      btn.textContent='Добавить';
-      btn.disabled=false;
-    };
-    reader.onerror=function(){
-      alert('Ошибка чтения файла!');
-      btn.textContent='Добавить';
-      btn.disabled=false;
-    };
-    reader.readAsDataURL(file);
-  } else if(urlVal){
-    const item={id,title,sub,src:urlVal,srcType:'url'};
-    dbPut(item).then(async()=>{
-      _edits = await dbGetAll();
-      _edits.sort((a,b)=>a.id-b.id);
-      renderEdits();
-    });
-  } else {
-    alert('Добавь ссылку или выбери файл!');return;
-  }
-  document.getElementById('newTitle').value='';
-  document.getElementById('newSub').value='';
-  document.getElementById('newVideoUrl').value='';
-  fileInput.value='';
-}
-
-async function deleteEdit(e,id){
-  e.stopPropagation();e.preventDefault();
-  await dbDelete(id);
-  _edits = await dbGetAll();
-  _edits.sort((a,b)=>a.id-b.id);
-  renderEdits();
-}
-
-function toggleArchive(){
-  archiveOpen=!archiveOpen;
-  document.getElementById('archiveToggle').classList.toggle('archive-open',archiveOpen);
-  const grid=document.getElementById('archiveGrid');
-  grid.parentElement.classList.toggle('archive-open',archiveOpen);
-}
-
-// Modal
-function openModal(ed){
-  const ov=document.getElementById('modalOverlay');
-  const ttl=document.getElementById('modalTitle');
-  const vid=document.getElementById('modalVideo');
-  const embed=getEmbedInfo(ed.src);
-  ttl.textContent=ed.title||'';
-  ov.classList.add('open');
+/* MODAL */
+function openModal(src,title,sub){
+  const v=document.getElementById('modalVideo');
+  v.src=src;
+  document.getElementById('modalTitleText').textContent=title||'';
+  document.getElementById('modalSubText').textContent=sub||'';
+  document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow='hidden';
-  if(embed.type==='iframe'){
-    vid.style.display='none';
-    let fr=document.getElementById('modalIframe');
-    if(!fr){
-      fr=document.createElement('iframe');
-      fr.id='modalIframe';
-      fr.style='width:100%;height:100%;border:none;display:block;';
-      fr.setAttribute('allowfullscreen','');
-      fr.setAttribute('allow','autoplay');
-      vid.parentNode.insertBefore(fr,vid);
-    }
-    fr.src=embed.src;
-    fr.style.display='block';
-  } else {
-    let fr=document.getElementById('modalIframe');
-    if(fr){fr.src='';fr.style.display='none';}
-    vid.style.display='block';
-    vid.src=ed.src||'';
-    vid.play().catch(()=>{});
-  }
+  v.play().catch(()=>{});
 }
 function closeModal(){
-  const ov=document.getElementById('modalOverlay');
-  const vid=document.getElementById('modalVideo');
-  const fr=document.getElementById('modalIframe');
-  ov.classList.remove('open');
-  vid.pause();vid.src='';
-  if(fr){fr.src='';fr.style.display='none';}
+  const v=document.getElementById('modalVideo');
+  document.getElementById('modalOverlay').classList.remove('open');
+  v.pause();v.src='';
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-
-// Загружаем из IndexedDB при старте
-openDB().then(async()=>{
-  _edits = await dbGetAll();
-  _edits.sort((a,b)=>a.id-b.id);
-  renderEdits();
-}).catch(()=>{ renderEdits(); });
 </script>
 </body>
 </html>
