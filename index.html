@@ -541,6 +541,19 @@ function dbDelete(id){
 function loadEdits(){ return _edits; }
 function saveEdits(arr){ _edits = arr; }
 
+// Определяем тип ссылки и возвращаем embed URL
+function getEmbedInfo(src){
+  if(!src) return {type:'video', src};
+  // Streamable
+  const sm = src.match(/streamable\.com\/([a-zA-Z0-9]+)/);
+  if(sm) return {type:'iframe', src:`https://streamable.com/e/${sm[1]}?autoplay=1&muted=1`};
+  // YouTube
+  const yt = src.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/))([a-zA-Z0-9_-]+)/);
+  if(yt) return {type:'iframe', src:`https://www.youtube.com/embed/${yt[1]}?autoplay=1&muted=1`};
+  // обычное видео
+  return {type:'video', src};
+}
+
 function renderEdits(){
   const edits = loadEdits();
   const feat = edits.slice(0,3);
@@ -556,12 +569,15 @@ function renderEdits(){
     fg.innerHTML=`<div style="grid-column:span 3;text-align:center;padding:3rem;color:var(--muted);font-size:0.85rem">Нажми "✏️ Управлять" и добавь первый эдит!</div>`;
   } else {
     feat.forEach((ed,i)=>{
+      const embed=getEmbedInfo(ed.src);
       const div=document.createElement('div');
       div.className='phone-frame';
       div.innerHTML=`
         <div class="phone-notch"></div>
         ${ed.src
-          ? `<video class="phone-video" src="${ed.src}" muted loop playsinline preload="metadata"></video>`
+          ? embed.type==='iframe'
+            ? `<iframe class="phone-video" src="${embed.src}" frameborder="0" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none"></iframe>`
+            : `<video class="phone-video" src="${embed.src}" muted loop playsinline preload="metadata"></video>`
           : `<div class="phone-placeholder"><div class="phone-play">▶</div><span style="font-size:0.7rem">${ed.title||'Эдит'}</span></div>`
         }
         <div class="phone-info">
@@ -570,12 +586,13 @@ function renderEdits(){
         </div>
         <button class="phone-del" onclick="deleteEdit(event,${ed.id})">✕</button>
       `;
-      div.addEventListener('click', ()=>{ if(!editMode) openModal(ed); });
-      // hover play
-      const vid = div.querySelector('video');
-      if(vid){
-        div.addEventListener('mouseenter',()=>vid.play().catch(()=>{}));
-        div.addEventListener('mouseleave',()=>{vid.pause();vid.currentTime=0;});
+      if(embed.type!=='iframe'){
+        div.addEventListener('click', ()=>{ if(!editMode) openModal(ed); });
+        const vid = div.querySelector('video');
+        if(vid){
+          div.addEventListener('mouseenter',()=>vid.play().catch(()=>{}));
+          div.addEventListener('mouseleave',()=>{vid.pause();vid.currentTime=0;});
+        }
       }
       fg.appendChild(div);
     });
@@ -587,17 +604,22 @@ function renderEdits(){
     ac.textContent=arch.length;
     ag.innerHTML='';
     arch.forEach((ed,i)=>{
+      const embed=getEmbedInfo(ed.src);
       const div=document.createElement('div');
       div.className='archive-card';
       div.innerHTML=`
         ${ed.src
-          ? `<video src="${ed.src}" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`
+          ? embed.type==='iframe'
+            ? `<iframe src="${embed.src}" frameborder="0" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none"></iframe>`
+            : `<video src="${embed.src}" muted preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`
           : `<div class="archive-card-placeholder"><div class="archive-card-play">🎬</div><span>${ed.title||'Эдит'}</span></div>`
         }
         <div class="archive-card-info"><div class="archive-card-title">${ed.title||'Эдит #'+(i+4)}</div></div>
         <button class="archive-del" onclick="deleteEdit(event,${ed.id})">✕</button>
       `;
-      div.addEventListener('click',()=>{ if(!editMode) openModal(ed); });
+      if(embed.type!=='iframe'){
+        div.addEventListener('click',()=>{ if(!editMode) openModal(ed); });
+      }
       ag.appendChild(div);
     });
   } else {
@@ -689,19 +711,40 @@ function toggleArchive(){
 // Modal
 function openModal(ed){
   const ov=document.getElementById('modalOverlay');
-  const vid=document.getElementById('modalVideo');
   const ttl=document.getElementById('modalTitle');
-  vid.src=ed.src||'';
+  const vid=document.getElementById('modalVideo');
+  const embed=getEmbedInfo(ed.src);
   ttl.textContent=ed.title||'';
   ov.classList.add('open');
   document.body.style.overflow='hidden';
-  vid.play().catch(()=>{});
+  if(embed.type==='iframe'){
+    vid.style.display='none';
+    let fr=document.getElementById('modalIframe');
+    if(!fr){
+      fr=document.createElement('iframe');
+      fr.id='modalIframe';
+      fr.style='width:100%;height:100%;border:none;display:block;';
+      fr.setAttribute('allowfullscreen','');
+      fr.setAttribute('allow','autoplay');
+      vid.parentNode.insertBefore(fr,vid);
+    }
+    fr.src=embed.src;
+    fr.style.display='block';
+  } else {
+    let fr=document.getElementById('modalIframe');
+    if(fr){fr.src='';fr.style.display='none';}
+    vid.style.display='block';
+    vid.src=ed.src||'';
+    vid.play().catch(()=>{});
+  }
 }
 function closeModal(){
   const ov=document.getElementById('modalOverlay');
   const vid=document.getElementById('modalVideo');
+  const fr=document.getElementById('modalIframe');
   ov.classList.remove('open');
   vid.pause();vid.src='';
+  if(fr){fr.src='';fr.style.display='none';}
   document.body.style.overflow='';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
