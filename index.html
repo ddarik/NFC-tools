@@ -469,14 +469,11 @@ let editMode = false;
 let addType = 'url';
 let archiveOpen = false;
 
-function loadEdits(){
-  try{return JSON.parse(localStorage.getItem('ddrik_edits'))||[];}catch(e){return [];}
-}
-function saveEdits(arr){
-  // Save only url-based (no blobs) to localStorage
-  const safe = arr.map(e=>({...e, src: e.srcType==='file'? e.src : e.src}));
-  try{localStorage.setItem('ddrik_edits', JSON.stringify(safe));}catch(e){}
-}
+// Хранилище в памяти — файлы живут пока страница открыта
+let _edits = [];
+
+function loadEdits(){ return _edits; }
+function saveEdits(arr){ _edits = arr; }
 
 function renderEdits(){
   const edits = loadEdits();
@@ -574,13 +571,10 @@ function addEdit(){
 
   if(addType==='file' && fileInput.files.length>0){
     const file=fileInput.files[0];
-    const reader=new FileReader();
-    reader.onload=e=>{
-      edits.push({id,title,sub,src:e.target.result,srcType:'file'});
-      saveEdits(edits);
-      renderEdits();
-    };
-    reader.readAsDataURL(file);
+    const objectUrl=URL.createObjectURL(file);
+    edits.push({id,title,sub,src:objectUrl,srcType:'file'});
+    saveEdits(edits);
+    renderEdits();
   } else if(urlVal){
     edits.push({id,title,sub,src:urlVal,srcType:'url'});
     saveEdits(edits);
@@ -597,6 +591,8 @@ function addEdit(){
 function deleteEdit(e,id){
   e.stopPropagation();e.preventDefault();
   let edits=loadEdits();
+  const ed=edits.find(ed=>ed.id===id);
+  if(ed && ed.srcType==='file' && ed.src) URL.revokeObjectURL(ed.src);
   edits=edits.filter(ed=>ed.id!==id);
   saveEdits(edits);
   renderEdits();
