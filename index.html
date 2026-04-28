@@ -576,7 +576,10 @@ function renderEdits(){
         <div class="phone-notch"></div>
         ${ed.src
           ? embed.type==='iframe'
+            ? `<iframe ... src="${embed.src}"></iframe>`
+            : `<iframe src="https://streamable.com/e/4r2dgm" class="phone-video"></iframe>`
             ? `<iframe class="phone-video" src="${embed.src}" frameborder="0" allowfullscreen allow="autoplay" style="width:100%;height:100%;border:none"></iframe>`
+              `<iframe src="https://streamable.com/e/4r2dgm" class="phone-video"></iframe>`
             : `<video class="phone-video" src="${embed.src}" muted loop playsinline preload="metadata"></video>`
           : `<div class="phone-placeholder"><div class="phone-play">▶</div><span style="font-size:0.7rem">${ed.title||'Эдит'}</span></div>`
         }
