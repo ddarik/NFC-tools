@@ -556,26 +556,39 @@ document.querySelectorAll('.reveal').forEach(el=>{
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');document.body.style.overflow=document.getElementById('navLinks').classList.contains('open')?'hidden':'';}
 function closeMenu(){document.getElementById('navLinks').classList.remove('open');document.body.style.overflow='';}
 
-/* FACEIT */
+/* FACEIT — публичный API без ключа */
 (async()=>{
   const R=[{l:1,n:1,x:500},{l:2,n:501,x:750},{l:3,n:751,x:900},{l:4,n:901,x:1050},{l:5,n:1051,x:1200},{l:6,n:1201,x:1350},{l:7,n:1351,x:1530},{l:8,n:1531,x:1750},{l:9,n:1751,x:2000},{l:10,n:2001,x:9999}];
   const C={1:'#808080',2:'#808080',3:'#808080',4:'#f0a84b',5:'#f0a84b',6:'#f0a84b',7:'#f0a84b',8:'#f0321e',9:'#f0321e',10:'#f0321e'};
-  try{
-    const res=await fetch('https://open.faceit.com/data/v4/players?nickname=DDaRiK',{headers:{Authorization:'Bearer 4614699e-91f2-4ecb-b913-87a4b32d1df9'}});
-    const d=await res.json();
-    const g=d.games&&(d.games.cs2||d.games.csgo);
-    if(g){
-      const l=g.skill_level||1,e=g.faceit_elo||0,r=R[Math.min(l-1,9)];
-      const pct=Math.min(100,Math.round((e-r.n)/(r.x-r.n)*100));
-      const c=C[l]||'#ff6d00';
-      const lv=document.getElementById('faceit-lvl');
-      if(lv){lv.textContent=l;lv.style.background=`linear-gradient(135deg,${c},${c}bb)`;lv.style.boxShadow=`0 0 12px ${c}55`;}
-      const ev=document.getElementById('faceit-elo');if(ev)ev.textContent=e+' ELO';
-      const fv=document.getElementById('elo-fill');if(fv){fv.style.width=pct+'%';fv.style.background=`linear-gradient(90deg,${c},${c}bb)`;}
-    }
-  }catch(e){
+  const setUI=(l,e)=>{
+    const r=R[Math.min((l||1)-1,9)];
+    const pct=Math.min(100,Math.max(0,Math.round(((e||0)-r.n)/(r.x-r.n)*100)));
+    const c=C[l]||'#ff6d00';
+    const lv=document.getElementById('faceit-lvl');
+    if(lv){lv.textContent=l;lv.style.background=`linear-gradient(135deg,${c},${c}bb)`;lv.style.boxShadow=`0 0 12px ${c}55`;}
+    const ev=document.getElementById('faceit-elo');if(ev)ev.textContent=(e||0)+' ELO';
+    const fv=document.getElementById('elo-fill');if(fv){fv.style.width=pct+'%';fv.style.background=`linear-gradient(90deg,${c},${c}bb)`;}
+  };
+  const showErr=(msg)=>{
     const lv=document.getElementById('faceit-lvl'),ev=document.getElementById('faceit-elo');
-    if(lv)lv.textContent='?';if(ev)ev.textContent='';
+    if(lv){lv.textContent='—';lv.style.background='linear-gradient(135deg,#444,#333)';}
+    if(ev)ev.textContent=msg;
+  };
+  try{
+    const r1=await fetch('https://api.faceit.com/users/v1/nicknames/DDaRiK');
+    if(!r1.ok) throw new Error('nick');
+    const d1=await r1.json();
+    const uid=d1?.payload?.id;
+    if(!uid) throw new Error('no uid');
+    const r2=await fetch(`https://api.faceit.com/users/v1/users/${uid}`);
+    if(!r2.ok) throw new Error('user');
+    const d2=await r2.json();
+    const games=d2?.payload?.games||{};
+    const g=games.cs2||games.csgo||Object.values(games)[0];
+    if(g&&g.skill_level) setUI(g.skill_level,g.faceit_elo);
+    else showErr('Калибровка...');
+  }catch(e){
+    showErr('Нет данных');
   }
 })();
 
